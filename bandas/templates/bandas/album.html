@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<div class="listSomething">
+
+<ul>
+    <h3>Album: {{ album.title }}, {{ album.release_year }}</h3>
+    <p>Lista de músicas do álbum:</p>
+    <ul>
+        {% for song in songs %}
+        <li>
+            <a href="{% url 'bandas:song_detail' song.id %}">{{ song.title }}</a>
+            {% if song.letra %}
+                <i class="fa-solid fa-music"></i>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</ul>
+</div>
+{% if request.user.is_authenticated %}
+<div class="forms-buttons">
+    <a href="{% url 'bandas:edit_album' album.id %}">Edit</a>
+    <a href="{% url 'bandas:delete_album' album.id %}">Delete</a>
+</div>
+{% endif %}
+{% endblock content %}

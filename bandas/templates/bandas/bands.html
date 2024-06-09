@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Bands</h1>
+<div class="listSomething">
+<ul>
+  {% for band in bands %}
+    <li><a href="{% url 'bandas:band_detail' band.id %}">{{ band.name }}</a></li>  {% endfor %}
+</ul>
+</div>
+{% if request.user.is_authenticated %}
+<p class="forms-buttons" >
+  <a href="{% url 'bandas:create_band'  %}" >Create New Band</a>
+  <a href="{% url 'bandas:create_album'  %}" >Create New Album</a>
+  <a href="{% url 'bandas:create_song'  %}" >Create New Song</a>
+</p>
+{% endif %}
+
+<!-- Seções com padrões -->
+<section class="section-pattern-1">
+  <h2>Seção com Padrão 1</h2>
+  <p>Conteúdo da seção 1.</p>
+</section>
+<section class="section-pattern-2">
+  <h2>Seção com Padrão 2</h2>
+  <p>Conteúdo da seção 2.</p>
+</section>
+<section class="section-pattern-3">
+  <h2>Seção com Padrão 3</h2>
+  <p>Conteúdo da seção 3.</p>
+</section>
+
+{% endblock %}

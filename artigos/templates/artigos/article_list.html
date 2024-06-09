@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Lista de Artigos{% endblock %}
+
+{% block content %}
+<h2>Lista de Artigos</h2>
+<div class="listSomething">
+    <ul>
+        {% for article in articles %}
+        <li>
+            <a href="{% url 'artigos:article_detail' article.id %}">{{article.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% if request.user.is_authenticated %}
+<div class="forms-buttons">
+    <a href="{% url 'artigos:create_article'%}" id="criarArtigo" >Criar artigo</a>
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h2>{{ curso.name }}a</h2>
+    {% if request.user.is_authenticated %}
+    <p class="forms-buttons">
+        <a href="{% url 'curso:curso_edit' curso.id  %}">Editar curso</a>
+        <a href="{% url 'curso:curso_delete' curso.id  %}">Apagar curso</a>
+    </p>
+    {% endif %}
+
+    <div class="discipline-cards">
+        {% for disciplina in disciplinasLista %}
+            <div class="card {% if disciplina.projetos %}has-projects{% endif %}">
+                <div class="card-header">
+                    {{ disciplina.info.name }} ({{ disciplina.info.year }}º ano/{{ disciplina.info.semester }})
+                </div>
+                {% if request.user.is_authenticated %}
+                <p class="forms-buttons">
+                    <a href="{% url 'curso:update_disciplina' disciplina.info.id  %}">Editar</a>
+                    <a href="{% url 'curso:delete_disciplina' disciplina.info.id  %}">Apagar</a>
+                </p>
+                {% endif %}
+
+                <div class="card-body">
+                    <ul>
+                        <li>ECTS: {{ disciplina.info.ects }}</li>
+                        <li>Curricular Unit Readable Code: {{ disciplina.info.curricularIUnitReadableCode }}</li>
+                        <li>Scientific Area: {{ disciplina.info.scientificArea.name }}</li>
+                        {% if disciplina.projetos %}
+                            <li style="padding: 0px 5px 5px 5px;">Projects:</li>
+                            <ul style="margin-left: 15px; border-left: 2px solid blue; padding-left: 10px;">
+                                {% for projeto in disciplina.projetos %}
+                                    <li>
+                                        <a href="{% url 'curso:projeto_detail' projeto.id %}">
+                                            <strong>{{ projeto.descricao }}</strong>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block style %}
+<style>
+    .discipline-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        width: 90%;
+        padding: 20px;
+    }
+    .card-header {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .card-body ul {
+        list-style: none;
+        padding: 0;
+    }
+    .card-body ul li {
+        margin-bottom: 5px;
+    }
+    .card-body ul li a {
+        color: blueviolet;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .card-body ul li a:hover {
+        color: #333;
+    }
+
+    .card.has-projects {
+        background-color: lightgreen;
+    }
+
+    @media screen and (max-width: 768px) {
+        .card {
+            width: calc(50% - 20px);
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .card {
+            width: calc(100% - 20px);
+        }
+    }
+</style>
+
+{% endblock %}

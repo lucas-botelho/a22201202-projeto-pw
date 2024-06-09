@@ -1,0 +1,111 @@
+{%extends 'base_layout.html' %}
+
+{%block style%}
+
+div.parallax {
+margin: 1.875rem;
+border: 3px solid black;
+}
+
+.parallax {
+background-image: url("https://cdn.pixabay.com/photo/2017/01/25/02/09/beach-2006993_960_720.jpg");
+height: 12.5rem;
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+b {
+color: dodgerblue;
+}
+
+
+.section {
+    width: 50%;
+}
+.sobreContent {
+    display: flex;
+    flex-direction: row;
+}
+
+.section1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .sobreContent {
+        flex-direction: column;
+    }
+
+    div.parallax {
+        max-width: 80%;
+    }
+
+    .section {
+        width: 80%;
+    }
+}
+
+{%endblock%}
+
+{%block content%}
+
+<div class="content-container">
+    <!-- Interests Section -->
+    <div class="section  section1" id="interests">
+        <h2>Tecnologias utilizadas no projeto Django</h2>
+        <ul>
+            <li>Python</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Django</li>
+        </ul>
+    </div>
+    <div class="parallax"></div>
+
+    <div class="sobreContent">
+
+
+        <div class="section" id="skills">
+            <h2>A minha app Django</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uZjzVho906E?si=Cme54eZL7bRSxSjx" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="section" id="experience">
+            <h2>Django: Padrao MVC</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8BXzYG7drWY?si=F-IxHl0ol11HOcGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="parallax"></div>
+
+    <div class="section section1" id="skills">
+        <h2>Selenium: Automação</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/u6bBab11gwg?si=gTHNHP_JO0-J2EoP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin: auto;"></iframe>
+        <p>
+            O script automatiza a interação com uma página web usando o Selenium e o navegador Chrome. Em resumo:
+        </p>
+        <ul>
+            <li>Abre o navegador e acessa uma URL específica.</li>
+            <li>Clica em botões para navegar pela página.</li>
+            <li>Preenche campos de login com usuário e senha.</li>
+            <li>Submete o formulário de login.</li>
+            <li>Navega por diferentes partes da página.</li>
+            <li>Preenche campos de criação de artigo.</li>
+            <li>Submete o formulário de criação de artigo.</li>
+            <li>Fecha o navegador.</li>
+        </ul>
+        <p>Estes passos automatizam a interação com a página sem a necessidade de intervenção manual.</p>
+
+    </div>
+    
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,245 @@
+[
+   {
+      "title":"Images and Words",
+      "release_year":1992,
+      "band":"Dream Theater",
+      "songs":[
+         {
+            "title":"Pull Me Under",
+            "duration":"8:11"
+         },
+         {
+            "title":"Another Day",
+            "duration":"4:23"
+         },
+         {
+            "title":"Metropolis—Part I: 'The Miracle and the Sleeper'",
+            "duration":"9:32"
+         },
+         {
+            "title":"Under a Glass Moon",
+            "duration":"7:03"
+         },
+         {
+            "title":"Learning to Live",
+            "duration":"11:30"
+         }
+      ]
+   },
+   {
+      "title":"Blackwater Park",
+      "release_year":2001,
+      "band":"Opeth",
+      "songs":[
+         {
+            "title":"The Leper Affinity",
+            "duration":"10:23"
+         },
+         {
+            "title":"Bleak",
+            "duration":"9:15"
+         },
+         {
+            "title":"Harvest",
+            "duration":"6:01"
+         },
+         {
+            "title":"The Drapery Falls",
+            "duration":"10:53"
+         },
+         {
+            "title":"Dirge for November",
+            "duration":"7:53"
+         }
+      ]
+   },
+   {
+      "title":"Once",
+      "release_year":2004,
+      "band":"Nightwish",
+      "songs":[
+         {
+            "title":"Dark Chest of Wonders",
+            "duration":"4:29"
+         },
+         {
+            "title":"Wish I Had an Angel",
+            "duration":"4:06"
+         },
+         {
+            "title":"Nemo",
+            "duration":"4:36"
+         },
+         {
+            "title":"Planet Hell",
+            "duration":"4:39"
+         },
+         {
+            "title":"Creek Mary's Blood",
+            "duration":"8:29"
+         }
+      ]
+   },
+   {
+      "title":"The Art of War",
+      "release_year":2008,
+      "band":"Sabaton",
+      "songs":[
+         {
+            "title":"Sun Tzu Says",
+            "duration":"0:22"
+         },
+         {
+            "title":"Ghost Division",
+            "duration":"3:51"
+         },
+         {
+            "title":"The Art of War",
+            "duration":"5:08"
+         },
+         {
+            "title":"40:1",
+            "duration":"4:10"
+         },
+         {
+            "title":"Unbreakable",
+            "duration":"5:58"
+         }
+      ]
+   },
+   {
+      "title":"The Phantom Agony",
+      "release_year":2003,
+      "band":"Epica",
+      "songs":[
+         {
+            "title":"Adyta (The Neverending Embrace)",
+            "duration":"1:27"
+         },
+         {
+            "title":"Sensorium",
+            "duration":"4:48"
+         },
+         {
+            "title":"Cry for the Moon (The Embrace That Smothers, Part IV)",
+            "duration":"6:44"
+         },
+         {
+            "title":"Feint",
+            "duration":"4:19"
+         },
+         {
+            "title":"Illusive Consensus",
+            "duration":"5:00"
+         }
+      ]
+   },
+   {
+      "title":"From Mars to Sirius",
+      "release_year":2005,
+      "band":"Gojira",
+      "songs":[
+         {
+            "title":"Ocean Planet",
+            "duration":"5:32"
+         },
+         {
+            "title":"Backbone",
+            "duration":"5:03"
+         },
+         {
+            "title":"From the Sky",
+            "duration":"5:49"
+         },
+         {
+            "title":"Unicorn",
+            "duration":"2:09"
+         },
+         {
+            "title":"Where Dragons Dwell",
+            "duration":"6:52"
+         }
+      ]
+   },
+   {
+      "title":"With Oden on Our Side",
+      "release_year":2006,
+      "band":"Amon Amarth",
+      "songs":[
+         {
+            "title":"Valhall Awaits Me",
+            "duration":"4:43"
+         },
+         {
+            "title":"Runes to My Memory",
+            "duration":"4:32"
+         },
+         {
+            "title":"Asator",
+            "duration":"3:04"
+         },
+         {
+            "title":"Hermod's Ride to Hel—Lokes Treachery Part 1",
+            "duration":"4:40"
+         },
+         {
+            "title":"Gods of War Arise",
+            "duration":"6:02"
+         }
+      ]
+   },
+   {
+      "title":"Lateralus",
+      "release_year":2001,
+      "band":"Tool",
+      "songs":[
+         {
+            "title":"The Grudge",
+            "duration":"8:36"
+         },
+         {
+            "title":"The Patient",
+            "duration":"7:13"
+         },
+         {
+            "title":"Schism",
+            "duration":"6:47"
+         },
+         {
+            "title":"Parabol",
+            "duration":"3:04"
+         },
+         {
+            "title":"Parabola",
+            "duration":"6:03"
+         }
+      ]
+   },
+   {
+      "title":"Follow the Reaper",
+      "release_year":2000,
+      "band":"Children of Bodom",
+      "songs":[
+         {
+            "title":"Follow the Reaper",
+            "duration":"3:47"
+         },
+         {
+            "title":"Bodom After Midnight",
+            "duration":"3:43"
+         },
+         {
+            "title":"Children of Decadence",
+            "duration":"5:34"
+         },
+         {
+            "title":"Everytime I Die",
+            "duration":"4:03"
+         },
+         {
+            "title":"Mask of Sanity",
+            "duration":"3:58"
+         }
+      ]
+   }
+]

@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Song: {{ song.title }}</h1>
+    <ul>
+        <li>{{ song.title }}</li>
+        <li><a href="{{spotify_link}}">Listen in spotify</a></li>
+        <li>Duration: {{ song.duration }}</li>
+        <li>Letra: <p>{{ song.letra }}</p></li>
+    </ul>
+    <div class="biografia">
+        {{ banda.biografia }}
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="forms-buttons">
+        <a href="{% url 'bandas:edit_song' song.id %}" >Edit</a>
+        <a href="{% url 'bandas:delete_song' song.id %}">Delete</a>
+    </div>
+    {% endif %}
+
+    <a href="{% url 'bandas:album_detail' album.id %}">Go back to the album: {{ album.title }}</a>
+
+
+{% endblock %}

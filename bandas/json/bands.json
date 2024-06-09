@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Dream Theater",
+    "genre": "Progressive Metal",
+    "formed_in": 1985,
+    "nationality": "United States"
+  },
+  {
+    "name": "Opeth",
+    "genre": "Progressive Metal",
+    "formed_in": 1990,
+    "nationality": "Sweden"
+  },
+  {
+    "name": "Nightwish",
+    "genre": "Symphonic Metal",
+    "formed_in": 1996,
+    "nationality": "Finland"
+  },
+  {
+    "name": "Sabaton",
+    "genre": "Power Metal",
+    "formed_in": 1999,
+    "nationality": "Sweden"
+  },
+  {
+    "name": "Epica",
+    "genre": "Symphonic Metal",
+    "formed_in": 2002,
+    "nationality": "Netherlands"
+  },
+  {
+    "name": "Gojira",
+    "genre": "Progressive Death Metal",
+    "formed_in": 1996,
+    "nationality": "France"
+  },
+  {
+    "name": "Amon Amarth",
+    "genre": "Melodic Death Metal",
+    "formed_in": 1992,
+    "nationality": "Sweden"
+  },
+  {
+    "name": "Tool",
+    "genre": "Progressive Metal",
+    "formed_in": 1990,
+    "nationality": "United States"
+  },
+  {
+    "name": "Children of Bodom",
+    "genre": "Melodic Death Metal",
+    "formed_in": 1993,
+    "nationality": "Finland"
+  },
+  {
+    "name": "Arch Enemy",
+    "genre": "Melodic Death Metal",
+    "formed_in": 1995,
+    "nationality": "Sweden"
+  }
+]

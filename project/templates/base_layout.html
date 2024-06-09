@@ -1,0 +1,414 @@
+{% load tz %}
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Lucas Botelho - a22201202{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bandas/estilos.css' %}">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        div.contentor {
+            display: grid;
+            grid-template-areas:
+                'header'
+                'main'
+                'footer';
+            grid-template-rows: 10vh 1fr 11vh;
+            height: 100vh;
+        }
+
+        body.light-mode {
+            background-color: #d8d8d8;
+            color: #000;
+        }
+
+        header.light-mode, footer.light-mode {
+            background-color: #0d2461;
+            color: #fff;
+        }
+
+        body.dark-mode {
+            background-color: #2b2b2b;
+            color: #fff;
+        }
+
+        header.dark-mode, footer.dark-mode {
+            background-color: #7c0404;
+            color: #fff;
+        }
+
+        header {
+            padding: 10px 20px;
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            grid-area: main;
+        }
+
+        footer {
+            text-align: center;
+            align-content: center;
+            padding: 10px 20px;
+            grid-area: footer;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .dark-mode-button {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: #7c0404;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            outline: none;
+            margin: 5px;
+        }
+
+        .dark-mode-button .slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background-color: #ccccca;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .dark-mode-button.active {
+            background-color: #171997;
+        }
+
+        .dark-mode-button.active .slider {
+            transform: translateX(30px);
+        }
+
+        @media (max-width: 768px) {
+            header, footer {
+                padding: 5px 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0;
+                margin: 0;
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav ul li {
+                flex: 1 1 auto;
+            }
+
+            header h1 {
+                font-size: 1.2em;
+                text-align: center;
+            }
+
+            header, footer {
+                padding: 5px;
+            }
+
+            nav ul {
+                gap: 3px;
+            }
+
+            .dark-mode-button {
+                width: 50px;
+                height: 25px;
+            }
+
+            .dark-mode-button .slider {
+                width: 21px;
+                height: 21px;
+            }
+
+            header h1 {
+                font-size: 1em;
+            }
+
+            .comment {
+                    font-size: 0.8rem; 
+                }
+
+                .listSomething li {
+                font-size: 0.8rem; 
+            }
+        }
+
+        .content-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .section {
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .section h2 {
+            margin-top: 0;
+            color: #0d2461;
+            }
+
+            .section p {
+            line-height: 1.6;
+            }
+
+            .skills-list, .experience-list {
+            list-style: none;
+            padding: 0;
+            }
+
+            .skills-list li, .experience-list li {
+            margin-bottom: 10px;
+            }
+
+            .skills-list li::before, .experience-list li::before {
+            content: "✔️";
+            margin-right: 10px;
+            color: #0d2461;
+            }
+
+            .listSomething ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .listSomething li {
+                margin: 5px 0;
+                padding: 10px 15px;
+                border: 1px solid #083088;
+                border-radius: 30px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                display: flex;
+                align-items: center;
+                font-size: 1rem; 
+            }
+
+            .listSomething li:hover {
+            background-color: #eee;
+            cursor: pointer;
+            }
+
+            .listSomething li::before {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            .listSomething li a {
+            text-decoration: none;
+            color: #333;
+            }
+
+            .listSomething li:hover a {
+            color: #007bff;
+            }
+
+            .comment {
+            margin: 15px 0; 
+            padding: 10px;
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            background-color: #f8f8f8;
+            }
+
+            ul{
+                list-style: none;
+            }
+            .comment ul {
+            list-style: none; 
+            padding: 0; 
+            }
+
+            .comment li {
+            margin: 5px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee; 
+            }
+
+            .comment li:last-child { 
+            border-bottom: none;
+            }
+
+            .comment p {
+            margin: 0; 
+            font-size: 0.9rem; 
+            line-height: 1.5;
+            }
+
+            .comment p:first-child { 
+            font-weight: bold;
+            }
+
+            .comment p:nth-child(2) { 
+            font-style: italic;
+            color: #666; 
+            }
+        {% block style %}{% endblock style %}
+    </style>
+</head>
+
+<body>
+    <div class="contentor">
+        <header>
+            <nav>
+                <button id="dark-mode-toggle" class="dark-mode-button">
+                    <span class="slider"></span>
+                </button>
+
+                <h1>{% block header_title %}{% endblock %}</h1>
+                <ul class="nav-links">
+                    <li><a href="{% url 'allapps' %}">Página Inicial</a></li>
+                    {% if user.is_authenticated %}
+                    <li><i class="fa-regular fa-user"></i> Welcome, {{ user.username }}</li>
+                    <li><i class="fa-solid fa-right-from-bracket"></i> <a id="logout" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><i class="fa-solid fa-right-to-bracket"></i> <a id="login" href="{% url 'login' %}">Login</a></li>
+                    {% if 'curso' not in request.path %}
+                    <li><i class="fa-solid fa-user-plus"></i> <a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                    {% endif %}
+
+                    <li><a href="{% url 'artigos:index' %}" id="artigos">Artigos</a></li>
+                    <li><a href="{% url 'bandas:index' %}" id="bandas">Bandas</a></li>
+                    <li><a href="{% url 'biblioteca:index' %}">Biblioteca</a></li>
+                    <li><a href="{% url 'curso:index' %}" id="curso">Curso</a></li>
+                    <li><a href="{% url 'filmes:index' %}">Filmes</a></li>
+                    <li><a href="{% url 'meteo:index' %}">Meteo</a></li>
+                    <li><a href="{% url 'noobsite:index' %}">Noobsite</a></li>
+                    <li><a href="{% url 'pwsite:index' %}">Pwsite</a></li>
+                    <li><a href="{% url 'sobre' %}" id="project">DOCKA Project</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <main class="block-content-container"
+            style="display: flex; flex-direction: column; align-items: center; align-content: center;">
+            {% block content %}{% endblock %}
+        </main> 
+
+        <footer>
+            <p>{% block footer_text %} {% now "Y" %} {% endblock %} Lucas Botelho - a22201202 - LEI</p>
+            <p id="relogio"></p>
+        </footer>
+    </div>
+    <script src="https://kit.fontawesome.com/fc6a22f7c0.js" crossorigin="anonymous"></script>
+
+    <script>
+
+        const relogio = document.querySelector('footer #relogio');
+        function tempo(){
+            const d = new Date();
+            relogio.innerHTML = d.toLocaleString();
+        }
+
+        setInterval(tempo, 1000);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            // Function to apply dark mode
+            function applyDarkMode() {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                header.classList.add('dark-mode');
+                header.classList.remove('light-mode');
+                footer.classList.add('dark-mode');
+                footer.classList.remove('light-mode');
+                toggleButton.classList.add('active');
+            }
+
+            // Function to apply light mode
+            function applyLightMode() {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+                header.classList.add('light-mode');
+                header.classList.remove('dark-mode');
+                footer.classList.add('light-mode');
+                footer.classList.remove('dark-mode');
+                toggleButton.classList.remove('active');
+            }
+
+            // Check the stored preference when the page loads
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'enabled') {
+                applyDarkMode();
+            } else {
+                applyLightMode();
+            }
+
+            // Toggle dark mode on button click
+            toggleButton.addEventListener('click', function() {
+                const darkMode = localStorage.getItem('darkMode');
+                if (darkMode !== 'enabled') {
+                    applyDarkMode();
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    applyLightMode();
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        });
+
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<h3>{{ article.title }}</h3>
+<p>{{ article.content }}</p>
+<p>Autor: {{ article.author }}</p>
+<p>Data de Criação: {{ article.created_at }}</p>
+
+<h4>Comentários:</h4>
+<div class="comment">
+
+  <ul>
+    {% for comment in comments %}
+    <li>
+      <p>{{ comment.content }}</p>
+      <p>Autor: {{ comment.author }}</p>
+      <p>Data de Criação: {{ comment.created_at }}</p>
+    </li>
+    {% empty %}
+    <li>Nenhum comentário disponível.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% if request.user.is_authenticated %}
+<div class="forms-buttons">
+    <a href="{% url 'artigos:create_comment' article.id%}" >Adicionar comentario</a>
+  </div>
+{% endif %}
+
+{% endblock %}

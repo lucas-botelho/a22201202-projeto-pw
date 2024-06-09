@@ -1,0 +1,18 @@
+{% extends 'layout_filmes.html' %}
+
+{% block content %}
+    <h1>{{ filme.titulo }}</h1>
+
+    <h2>Atores:</h2>
+    <ul>
+        {% for ator in atores %}
+            <li>{{ ator.nome }} ({{ ator.idade }} anos) - {{ ator.nacionalidade }}</li>
+        {% endfor %}
+    </ul>
+
+    <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+
+    <p></p>
+
+    <a href="{% url 'filmes:index' %}">Voltar para a lista de filmes</a>
+{% endblock %}

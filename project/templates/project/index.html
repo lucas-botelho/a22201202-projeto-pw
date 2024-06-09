@@ -1,0 +1,75 @@
+{% extends 'base_layout.html' %}
+
+{%block style%}
+
+div.hero {
+    background-image: url('https://media.istockphoto.com/id/150687910/pt/foto/ser-super.jpg?s=2048x2048&w=is&k=20&c=eAFkL7rP_SptDBf1Yp3XjU5_DsXEXW98aJshz4GijxE=');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    animation: slide-in 1s ease-in-out;
+}
+
+div.hero .content {
+    padding: 40px;
+}
+
+.big-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+{% endblock%}
+
+{% block content %}
+<div class="hero">
+    <div class="content">
+        <p class="big-text">This is my portfolio.</p>
+        <a href="{% url 'mebyme' %}" class="button">Know more about me by me</a>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/meteo/api/tempo/1110600/')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const heroDiv = document.querySelector('.hero');
+                // const newDiv = document.createElement('div');
+                // newDiv.innerHTML = `<div style="display: flex; width: 50px; height: 50px;">
+                //                         <img style="width: 50px; height: 50px;" src="${data.forecast['weather_type_url']}" alt="Weather Type">
+                //                     </div>`;
+                // heroDiv.appendChild(newDiv);
+                heroDiv.insertAdjacentHTML('afterend', `<div style="display: flex; width: 50px; height: 50px;">
+                                                        <img style="width: 50px; height: 50px;" src="${data.forecast['weather_type_url']}" alt="Weather Type">
+                                                    </div>`);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
+{% endblock %}

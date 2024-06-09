@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+  <h1>Create Article</h1>
+  <form method="post" id="create_article">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

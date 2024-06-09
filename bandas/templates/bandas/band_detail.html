@@ -1,0 +1,40 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<h1>{{ band.name }}</h1>
+
+<div class="band-details">
+  <p>Gênero: {{ band.genre }}</p>
+  <p>Ano de formação: {{ band.formed_in }}</p>
+  <p>Nacionalidade: {{ band.nacionality }}</p>
+
+  {% if band.photo %}
+  <img src="{{ band.photo.url }}" alt="Foto da banda {{ band.name }}">
+  {% else %}
+  <p>Imagem da banda não disponível.</p>
+  {% endif %}
+
+  <p>{{ band.info }}</p>
+</div>
+{% if request.user.is_authenticated %}
+<div class="forms-buttons">
+  <a href="{% url 'bandas:edit_band' band.id %}">Edit</a>
+  <a href="{% url 'bandas:delete_band' band.id %}">Delete</a>
+</div>
+{% endif %}
+
+<h2>Discografia</h2>
+<div class="listSomething">
+  <ul>
+    {% for album in albums %}
+    <li>
+      <a href="{% url 'bandas:album_detail' album.pk %}">{{ album.title }}</a> ({{ album.release_year }})
+      {% if album.cover %}
+      <img src="{{ album.cover.url }}" alt="Capa do álbum {{ album.title }}" width="100">
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

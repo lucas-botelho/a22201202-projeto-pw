@@ -1,0 +1,55 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>Todos os Cursos Disponíveis</h1>
+<ul class="curso-list">
+    {% for curso in cursos %}
+    <li><a href="{% url 'curso:curso_detail' curso.id %}">{{ curso.name }}</a></li>
+    {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+<p class="forms-buttons">
+    <a href="{% url 'curso:curso_create'  %}">Criar novo curso</a>
+    <a href="{% url 'curso:area_cientifica_create'  %}">Criar nova area cientifica</a>
+    <a href="{% url 'curso:docente_create'  %}">Criar novo docente</a>
+    <a href="{% url 'curso:create_disciplina'  %}">Criar nova disciplina</a>
+</p>
+{% endif %}
+{% endblock content %}
+
+{% block style %}
+<style>
+    /* Styles for Curso List */
+    .curso-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .curso-list li {
+        margin-bottom: 10px;
+    }
+
+    .curso-list li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .curso-list li a:hover {
+        color: #666;
+    }
+
+    /* Media query for responsiveness */
+    @media screen and (max-width: 768px) {
+        .curso-list {
+            margin: 10px 0;
+        }
+
+        .curso-list li {
+            margin-bottom: 5px;
+        }
+    }
+</style>
+{% endblock style %}

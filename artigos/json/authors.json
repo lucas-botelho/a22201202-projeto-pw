@@ -1,0 +1,42 @@
+[
+  {
+    "name": "John Doe",
+    "bio": "John Doe is a web developer with years of experience in front-end and back-end development."
+  },
+  {
+    "name": "Jane Smith",
+    "bio": "Jane Smith is a freelance writer and blogger, specializing in technology and software development."
+  },
+  {
+    "name": "Michael Johnson",
+    "bio": "Michael Johnson is a software engineer passionate about open-source projects and machine learning."
+  },
+  {
+    "name": "Emily Brown",
+    "bio": "Emily Brown is a UX/UI designer focused on creating intuitive and user-friendly interfaces for web and mobile applications."
+  },
+  {
+    "name": "David Wilson",
+    "bio": "David Wilson is a full-stack developer with expertise in JavaScript frameworks such as React and Angular."
+  },
+  {
+    "name": "Sarah Martinez",
+    "bio": "Sarah Martinez is a cybersecurity expert with a background in network security and ethical hacking."
+  },
+  {
+    "name": "Chris Taylor",
+    "bio": "Chris Taylor is a data scientist specializing in data analysis, visualization, and predictive modeling."
+  },
+  {
+    "name": "Jessica Clark",
+    "bio": "Jessica Clark is a digital marketer with experience in SEO, content marketing, and social media strategy."
+  },
+  {
+    "name": "Ryan Anderson",
+    "bio": "Ryan Anderson is a software architect with a focus on scalable and distributed systems."
+  },
+  {
+    "name": "Maria Garcia",
+    "bio": "Maria Garcia is a web designer passionate about creating beautiful and responsive websites."
+  }
+]

@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="project-container">
+        <h1>{{ projeto.descricao }}</h1>
+        <div class="project-details">
+            <p><strong>Disciplina:</strong> {{ projeto.disciplina.name }}</p>
+            <p><strong>Concepts Applied:</strong> {{ projeto.conceitos_aplicados }}</p>
+            <p><strong>Technologies Used:</strong> {{ projeto.tecnologias_usadas }}</p>
+        </div>
+        {% if projeto.imagem %}
+            <img src="{{ projeto.imagem.url }}" alt="Project Image">
+        {% endif %}
+        <div class="project-links">
+            {% if projeto.video_link %}
+                <p><strong>Video Link:</strong> <a href="{{ projeto.video_link }}">{{ projeto.video_link }}</a></p>
+            {% endif %}
+            {% if projeto.github_repo_link %}
+                <p><strong>GitHub Repository:</strong> <a href="{{ projeto.github_repo_link }}">{{ projeto.github_repo_link }}</a></p>
+            {% endif %}
+            {% if projeto.language %}
+                <p><strong>Programming Language:</strong> {{ projeto.language.nome }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

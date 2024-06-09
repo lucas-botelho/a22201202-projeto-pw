@@ -1,0 +1,27 @@
+[
+    {
+        "article_id": 1,
+        "content": "Ótimas dicas! Isso vai me ajudar muito em minha jornada como desenvolvedor iniciante.",
+        "author": "Jane Smith"
+    },
+    {
+        "article_id": 2,
+        "content": "Excelente tutorial! Consegui criar minha primeira aplicação web com Django seguindo seus passos.",
+        "author": "Michael Johnson"
+    },
+    {
+        "article_id": 3,
+        "content": "Estou ansioso para começar meu caminho para me tornar um desenvolvedor full-stack. Obrigado por compartilhar essas dicas!",
+        "author": "Emily Brown"
+    },
+    {
+        "article_id": 4,
+        "content": "Adorei as sugestões para otimizar o desempenho de aplicativos web. Vou implementar algumas delas em meu projeto atual.",
+        "author": "David Wilson"
+    },
+    {
+        "article_id": 5,
+        "content": "A acessibilidade é realmente importante. Devemos garantir que nossos produtos sejam acessíveis a todos.",
+        "author": "John Doe"
+    }
+]

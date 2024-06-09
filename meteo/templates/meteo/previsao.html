@@ -1,0 +1,101 @@
+{% extends 'base_layout.html' %}
+
+{% block style %}
+    .container {
+        margin: 20px;
+    }
+    .city-selector {
+        margin-bottom: 20px;
+    }
+    .forecast {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .forecast-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 5px;
+        width: calc(20% - 20px);
+        box-sizing: border-box;
+    }
+
+    .invisible{
+        display: none;
+    }
+
+    .btn-meteo {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #eee;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+      }
+
+      .btn-meteo:hover {
+        background-color: #ddd;
+      }
+
+{% endblock style %}
+
+{% block content %}
+    <div class="container">
+        <h1>Previsão Meteorológica</h1>
+        <div class="city-selector">
+            <label for="city">Escolha a cidade:</label>
+            <select id="city">
+                <option value="">Selecione uma cidade</option>
+                {% for city in cities %}
+                <option value="{{ city.globalIdLocal }}">{{ city.local }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div id="forecast" class="forecast"></div>
+
+        <div style="margin-top: 20px;">
+            <a href="{% url 'meteo:lista_cidades' %}" class="btn-meteo">API com Lista de cidades</a>
+            <a href="{% url 'meteo:previsao_lisboa' %}" class="btn-meteo">Previsao de Lisboa</a>
+            <a id="apiTempoCidade" href="" class="invisible btn-meteo"></a>
+          </div>
+
+    </div>
+
+    <script>
+        document.getElementById('city').addEventListener('change', function() {
+            console.log(this.value);
+            const cityId = this.value;
+
+            const apiTempoCidadeBtn = document.getElementById('apiTempoCidade');
+            apiTempoCidadeBtn.classList.remove('invisible');
+            apiTempoCidadeBtn.href = `/meteo/api/tempo/${cityId}/`;
+            apiTempoCidadeBtn.innerText = 'API com Previsão da Cidade';
+            if (cityId) {
+                console.log('Fetching forecast for city', cityId);
+                fetch(`/meteo/previsao/${cityId}/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const forecastDiv = document.getElementById('forecast');
+                        forecastDiv.innerHTML = '';
+                        data.forecast.forEach(dailyForecast => {
+                            const forecastItem = document.createElement('div');
+                            forecastItem.className = 'forecast-item';
+                            forecastItem.innerHTML = `
+                                <h3>${dailyForecast.day.forecastDate}</h3>
+                                <p>Temperatura Mínima: ${dailyForecast.day.tMin} °C</p>
+                                <p>Temperatura Máxima: ${dailyForecast.day.tMax} °C</p>
+                                <p>Probabilidade chuva: ${dailyForecast.day.precipitaProb}%</p>
+                                <div style="display: flex; width: 50px; height: 50px;">
+                                    <img style="width: 50px; height: 50px;" src="${dailyForecast.weather_type_url}" alt="Weather Type">
+                                </div>
+                                <p>Tempo: ${dailyForecast.weatherDescription}</p>
+                            `;
+                            forecastDiv.appendChild(forecastItem);
+                        });
+                    });
+            }
+        });
+    </script>
+{% endblock %}

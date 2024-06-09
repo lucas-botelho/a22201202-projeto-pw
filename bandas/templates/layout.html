@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bandas Website</title>
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'bandas:index'%}">Bandas</a>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer></footer>
+  </body>
+</html>

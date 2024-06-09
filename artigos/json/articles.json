@@ -1,0 +1,32 @@
+[
+  {
+    "article_id": 1,
+    "title": "10 dicas essenciais para desenvolvedores iniciantes",
+    "content": "Neste artigo, exploramos algumas dicas úteis para desenvolvedores iniciantes que desejam aprimorar suas habilidades e avançar em suas carreiras.",
+    "author": "John Doe"
+  },
+  {
+    "article_id": 2,
+    "title": "Introdução ao framework Django: Construa sua primeira aplicação web",
+    "content": "Este tutorial oferece uma introdução passo a passo ao desenvolvimento web com Django, incluindo a criação de modelos, visualizações e URLs.",
+    "author": "Jane Smith"
+  },
+  {
+    "article_id": 3,
+    "title": "Como se tornar um desenvolvedor full-stack em 6 meses",
+    "content": "Descubra um plano de estudo detalhado e recursos úteis para se tornar um desenvolvedor full-stack em apenas seis meses, incluindo tecnologias front-end e back-end.",
+    "author": "Michael Johnson"
+  },
+  {
+    "article_id": 4,
+    "title": "Melhores práticas para otimizar o desempenho de aplicativos web",
+    "content": "Neste artigo, discutimos diversas técnicas e estratégias para otimizar o desempenho de aplicativos web, incluindo otimização de banco de dados, caching e compressão de recursos estáticos.",
+    "author": "Emily Brown"
+  },
+  {
+    "article_id": 5,
+    "title": "A importância da acessibilidade na criação de sites e aplicativos",
+    "content": "Saiba por que a acessibilidade é crucial na criação de sites e aplicativos e aprenda a implementar práticas de design inclusivo para garantir que todos os usuários possam acessar e utilizar sua plataforma.",
+    "author": "David Wilson"
+  }
+]
