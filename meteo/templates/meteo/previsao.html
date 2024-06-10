@@ -23,6 +23,25 @@
         display: none;
     }
 
+    .btn-meteo-container{
+        margin-top: 20px;
+        display: flex;
+    }
+
+    @media (max-width: 600px) {
+        .forecast-item {
+            width: 80%;
+        }
+
+        .btn-meteo-container, .forecast {
+            flex-direction: column;
+        }
+
+        .btn-meteo-container a {
+            margin-bottm: 5px;
+        }
+    }
+
     .btn-meteo {
         padding: 8px 16px;
         border: 1px solid #ccc;
@@ -55,7 +74,7 @@
         </div>
         <div id="forecast" class="forecast"></div>
 
-        <div style="margin-top: 20px;">
+        <div class="btn-meteo-container">
             <a href="{% url 'meteo:lista_cidades' %}" class="btn-meteo">API com Lista de cidades</a>
             <a href="{% url 'meteo:previsao_lisboa' %}" class="btn-meteo">Previsao de Lisboa</a>
             <a id="apiTempoCidade" href="" class="invisible btn-meteo"></a>
